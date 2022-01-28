@@ -5,30 +5,24 @@ What is the 10 001st prime number?
 https://projecteuler.net/problem=7
 */
 
-let x;
-let i;
 function isPrime(x){
-    if(x<=1){
-        return false;
-    }
-    for(i=2; i<x; i++) {
-        if(x%i===0){
-        return false;
-        }
+    if(x<=1) return false;
+    for(let i=2; i<x; i++) {
+        if(x%i===0) return false;
     }
     return true;
 }
-
-const arrPrime=[2];
-let j=3;
-while(j>2){
-    if(isPrime(j)===true){
-        arrPrime.push(j);
-        if(arrPrime.length===10001){
-            break;
-            }
+function xthPrimeNumber(x){
+    const primeNumbers=[2];
+    let j=3;
+    while(j>2){
+        if(isPrime(j)===true){
+            primeNumbers.push(j);
+            if(primeNumbers.length===10001) break;
         }
-    j=j+2;
+        j=j+2;
+    }
+    return primeNumbers[x-1];
 }
 
-console.log(arrPrime[10000]);
+console.log(xthPrimeNumber(10001));

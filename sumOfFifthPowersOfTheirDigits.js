@@ -3,7 +3,7 @@
 1634 = 1**4 + 6**4 + 3**4 + 4**4
 8208 = 8**4 + 2**4 + 0**4 + 8**4
 9474 = 9**4 + 4**4 + 7**4 + 4**4
-As 1 = 14 is not a sum it is not included.
+As 1 = 1**4 is not a sum it is not included.
 
 The sum of these numbers is 1634 + 8208 + 9474 = 19316.
 
@@ -13,41 +13,26 @@ https://projecteuler.net/problem=30
 */
 
 
-let i=0;
-let j=2;
-let y=5;
-
-function sum(x){
-    let arr1=[];
+function isSumOfFifthPowersOfTheirDigitsEqualToSelf(x,y){
+    const digits=String(x).split("");
     let total=0;
-    arr1=String(x).split("");
-
-    for(i=0; i<arr1.length; i++){
-        total+=Number(arr1[i])**y;
+    for(let i=0; i<digits.length; i++){
+        total+=Number(digits[i])**y;
     }
-    if(total===x){
-        return true;
-    }
-    else{
-        return false;
-    }
-    
+    if(total===x) return true;
+    else return false;
 }
-
-let arr2=[];
-let sumAll=0;
-
-for(j=2;j<10000000;j++){
-
-   if(sum(j)===true){
-       arr2.push(j);
-       sumAll+=j;
-   }
+function findSumOfAllThoseNumbers(n){
+    let sumAll=0;
+    for(let j=2;j<n;j++){
+        if(isSumOfFifthPowersOfTheirDigitsEqualToSelf(j,5)) sumAll+=j;
+    }
+    return sumAll;
 }
+console.log(findSumOfAllThoseNumbers(10000000));
 
-console.log(sumAll);
 
-console.log(arr2);
+
 
 
 

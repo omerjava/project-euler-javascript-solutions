@@ -11,7 +11,6 @@ function prime(x){
       if(x % i===0){
          primeFactors.push(i);
          x=x/i;   
-         //console.log(x);
       }
    }
    return Math.max(...primeFactors);

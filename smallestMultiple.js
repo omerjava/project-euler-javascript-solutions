@@ -4,8 +4,36 @@ remainder.
 What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20? 
 
 https://projecteuler.net/problem=5
-
 */
+
+/**
+ * Given a number `n`, the function will find the all numbers until `n` and find the first number
+ * which can be divided with all these numbers until `n`.
+ *
+ * @param {number} n - The first number will be found which can be divided with all numbers until `n`
+ * @returns {number} - It will return the first number which can be divided with all numbers until `n`.
+ */
+
+function smallestMultiple(n){
+   const numbers=[];
+   for(let i=1; i<n+1; i++){
+      numbers.push(i);
+   }
+   let i=n;
+   for(i; i<n*1000000000; i++){
+      let check;
+      check=numbers.every(v => i%v===0)
+      if(check===true) break;
+   }
+   return i;
+}
+
+console.log(smallestMultiple(20));
+
+
+
+/*
+below are my first code problem solving efforts :)
 
 let i=1;
 
@@ -124,7 +152,7 @@ while(i>0) {
    i++;
 }
 
-console.log(i); */
+console.log(i); 
 ```
 let i=1;
 
@@ -139,3 +167,5 @@ while(i>0) {
 
 console.log(i);
 ```
+
+*/
